@@ -29,6 +29,8 @@ class MyApp extends StatelessWidget {
           )
         ];
 
+    final List<Color> myColor = [Colors.red, Colors.green, Colors.blue, Colors.yellow];
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +39,21 @@ class MyApp extends StatelessWidget {
       home: Scaffold(appBar: AppBar(
         title: const Text("List View"),
       ),
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children: myList,
-      ),
+      body: ListView.separated(
+        separatorBuilder: (context, index){
+          return const Divider(
+            color: Colors.black,
+          );
+        },
+        itemCount: myColor.length,
+        itemBuilder: (context, index){
+          return Container(
+            height: 300,
+            width: 300,
+            color: myColor[index],
+          );
+        }
+        )
       ),
     );
   }
