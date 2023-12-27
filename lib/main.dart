@@ -39,21 +39,22 @@ class MyApp extends StatelessWidget {
       home: Scaffold(appBar: AppBar(
         title: const Text("List View"),
       ),
-      body: ListView.separated(
-        separatorBuilder: (context, index){
-          return const Divider(
-            color: Colors.black,
-          );
-        },
-        itemCount: myColor.length,
-        itemBuilder: (context, index){
-          return Container(
-            height: 300,
-            width: 300,
-            color: myColor[index],
-          );
-        }
-        )
+      body: ListView(
+        children: [
+          ListTile(
+            contentPadding: EdgeInsets.all(10),
+            title: Text('Ariq'),
+            subtitle: Text('Lorem ipsum sor dolor ameta daosdaodsmaosdaosdoasodmaomsdaosdoasodamdoasmda',
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,),
+            leading: CircleAvatar(),
+            trailing: Text('10.00'),
+            onTap: (){
+              return;
+            },
+          )
+        ],
+      )
       ),
     );
   }
